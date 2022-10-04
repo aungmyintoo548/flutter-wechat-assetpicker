@@ -92,6 +92,9 @@ class AssetPickerTextDelegate {
   String get accessAllTip => '你已设置应用只能访问设备部分资源，'
       '建议允许访问「所有资源」';
 
+  String get accessAllTip2 => '你已设置应用只能访问设备部分资源，'
+      '建议允许访问「所有资源」';
+
   String get goToSystemSettings => '前往系统设置';
 
   /// "Continue accessing some assets".
@@ -217,6 +220,10 @@ class EnglishAssetPickerTextDelegate extends AssetPickerTextDelegate {
       'Go to system settings and allow app to access all assets on the device.';
 
   @override
+  String get accessAllTip2 => 'App can only access some assets on the device. '
+      'Go to system settings and allow app to access all assets on the device.';
+
+  @override
   String get goToSystemSettings => 'Go to system settings';
 
   @override
@@ -309,6 +316,10 @@ class HebrewAssetPickerTextDelegate extends AssetPickerTextDelegate {
 
   @override
   String get accessAllTip => 'האפליקציה יכולה לגשת רק לחלק מהקבצים במכשיר. '
+      'פתח הגדרות מערכת ואפשר לאפליקציה גישה לכל הקבצים במכשיר.';
+
+  @override
+  String get accessAllTip2 => 'האפליקציה יכולה לגשת רק לחלק מהקבצים במכשיר. '
       'פתח הגדרות מערכת ואפשר לאפליקציה גישה לכל הקבצים במכשיר.';
 
   @override
@@ -414,6 +425,12 @@ class GermanAssetPickerTextDelegate extends AssetPickerTextDelegate {
       'auf alle Dateien auf dem Gerät zuzugreifen';
 
   @override
+  String get accessAllTip2 =>
+      'Die App kann nur auf einige der Dateien auf dem Gerät zugreifen. '
+      'Öffnen Sie die Systemeinstellungen und erlauben Sie der App, '
+      'auf alle Dateien auf dem Gerät zuzugreifen';
+
+  @override
   String get goToSystemSettings => 'Gehe zu den Systemeinstellungen';
 
   @override
@@ -507,6 +524,11 @@ class RussianAssetPickerTextDelegate extends AssetPickerTextDelegate {
 
   @override
   String get accessAllTip =>
+      'У приложения доступ только к некоторым файлам на устройстве. '
+      'Откройте настройки системы и разрешите приложению доступ ко всем файлам на устройстве.';
+
+  @override
+  String get accessAllTip2 =>
       'У приложения доступ только к некоторым файлам на устройстве. '
       'Откройте настройки системы и разрешите приложению доступ ко всем файлам на устройстве.';
 
@@ -607,6 +629,11 @@ class JapaneseAssetPickerTextDelegate extends AssetPickerTextDelegate {
       'よろしければシステム設定から写真のアクセス許可設定をご変更ください。';
 
   @override
+  String get accessAllTip2 => '選択した写真にのみアクセスできるように設定されています。'
+      'すべての写可いただくとスムーズ'
+      'よろしければシステム設定から。';
+
+  @override
   String get goToSystemSettings => '「システム設定」に移動';
 
   @override
@@ -700,6 +727,11 @@ class ArabicAssetPickerTextDelegate extends AssetPickerTextDelegate {
 
   @override
   String get accessAllTip =>
+      'يمكن للتطبيق الوصول فقط إلى بعض الملفات الموجودة على الجهاز. '
+      'افتح إعدادات النظام واسمح للتطبيق بالوصول إلى جميع الملفات الموجودة على الجهاز.';
+
+  @override
+  String get accessAllTip2 =>
       'يمكن للتطبيق الوصول فقط إلى بعض الملفات الموجودة على الجهاز. '
       'افتح إعدادات النظام واسمح للتطبيق بالوصول إلى جميع الملفات الموجودة على الجهاز.';
 
@@ -798,6 +830,12 @@ class FrenchAssetPickerTextDelegate extends AssetPickerTextDelegate {
 
   @override
   String get accessAllTip =>
+      "L'application ne peut accéder qu'à certains medias. "
+      "Allez dans les paramètres système et autoriser l'application "
+      "à accéder à tous les medias sur l'appareil";
+
+  @override
+  String get accessAllTip2 =>
       "L'application ne peut accéder qu'à certains medias. "
       "Allez dans les paramètres système et autoriser l'application "
       "à accéder à tous les medias sur l'appareil";

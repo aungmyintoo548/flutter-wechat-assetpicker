@@ -484,11 +484,11 @@ abstract class AssetPickerBuilderDelegate<Asset, Path> {
             const SizedBox(width: 15),
             Expanded(
               child: ScaleText(
-                textDelegate.accessAllTip,
+                textDelegate.accessAllTip2,
                 style: context.themeData.textTheme.caption?.copyWith(
                   fontSize: 14,
                 ),
-                semanticsLabel: semanticsTextDelegate.accessAllTip,
+                semanticsLabel: semanticsTextDelegate.accessAllTip2,
               ),
             ),
             Icon(
