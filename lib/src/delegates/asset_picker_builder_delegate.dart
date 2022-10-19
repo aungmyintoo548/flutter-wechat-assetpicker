@@ -505,16 +505,16 @@ abstract class AssetPickerBuilderDelegate<Asset, Path> {
   /// 底部操作栏部件
   Widget bottomActionBar(BuildContext context) {
     Widget child = Container(
-      // height: bottomActionBarHeight + context.bottomPadding,
-      // padding: const EdgeInsets.symmetric(horizontal: 20).copyWith(
-      //   bottom: context.bottomPadding,
-      // ),
+      height: bottomActionBarHeight + context.bottomPadding,
+      padding: const EdgeInsets.symmetric(horizontal: 20).copyWith(
+        bottom: context.bottomPadding,
+      ),
       color: theme.primaryColor.withOpacity(isAppleOS ? 0.90 : 1),
       child: Row(
         children: <Widget>[
-          // if (!isAppleOS) previewButton(context),
-          // if (isAppleOS) const Spacer(),
-          // if (isAppleOS && !isPermissionLimited) confirmButton(context),
+          if (!isAppleOS) previewButton(context),
+          if (isAppleOS) const Spacer(),
+          if (isAppleOS) confirmButton(context),
         ],
       ),
     );
