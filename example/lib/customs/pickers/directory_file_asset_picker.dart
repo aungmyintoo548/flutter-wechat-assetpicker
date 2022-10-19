@@ -433,7 +433,7 @@ class FileAssetPickerBuilder
       provider.unSelectAsset(asset);
     } else {
       if (isSingleAssetMode) {
-        // provider.selectedAssets.clear();
+        provider.selectedAssets.clear();
       }
       provider.selectAsset(asset);
     }
@@ -771,7 +771,7 @@ class FileAssetPickerBuilder
             },
             materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
             child: Text(
-              provider.isSelectedNotEmpty && isSingleAssetMode
+              provider.isSelectedNotEmpty && !isSingleAssetMode
                   ? '${textDelegate.confirm}'
                       '(${provider.selectedAssets.length}/${provider.maxAssets})'
                   : textDelegate.confirm,
@@ -1064,9 +1064,9 @@ class FileAssetPickerBuilder
               if (isSelected) {
                 provider.unSelectAsset(asset);
               } else {
-                // if (isSingleAssetMode) {
-                //   provider.selectedAssets.clear();
-                // }
+                if (isSingleAssetMode) {
+                  provider.selectedAssets.clear();
+                }
                 provider.selectAsset(asset);
               }
             },

@@ -778,13 +778,13 @@ class DefaultAssetPickerBuilderDelegate
       provider.unSelectAsset(asset);
       return;
     }
-    if (isSingleAssetMode) {
-      provider.selectedAssets.clear();
-    }
+    // if (isSingleAssetMode) {
+    //   provider.selectedAssets.clear();
+    // }
     provider.selectAsset(asset);
-    if (isSingleAssetMode && !isPreviewEnabled) {
-      Navigator.of(context).maybePop(provider.selectedAssets);
-    }
+    // if (isSingleAssetMode && !isPreviewEnabled) {
+    //   Navigator.of(context).maybePop(provider.selectedAssets);
+    // }
   }
 
   @override
@@ -900,7 +900,8 @@ class DefaultAssetPickerBuilderDelegate
       //   because any click on an asset selects it.
       // - On iOS and macOS, show nothing.
       actions: <Widget>[
-        if (!isAppleOS && isPreviewEnabled) confirmButton(context),
+        // if (!isAppleOS && (isPreviewEnabled || !isSingleAssetMode))
+          // confirmButton(context),
       ],
       actionsPadding: const EdgeInsetsDirectional.only(end: 14),
       blurRadius: isAppleOS ? appleOSBlurRadius : 0,
@@ -924,7 +925,7 @@ class DefaultAssetPickerBuilderDelegate
                         child: Column(
                           children: <Widget>[
                             Expanded(child: assetsGridBuilder(context)),
-                            if (!isSingleAssetMode && isPreviewEnabled)
+                            if (isSingleAssetMode && isPreviewEnabled)
                               bottomActionBar(context),
                           ],
                         ),
@@ -951,7 +952,7 @@ class DefaultAssetPickerBuilderDelegate
             child: Stack(
               children: <Widget>[
                 Positioned.fill(child: assetsGridBuilder(context)),
-                if (!isSingleAssetMode || isAppleOS)
+                if (isSingleAssetMode || isAppleOS)
                   Positioned.fill(
                     top: null,
                     child: bottomActionBar(context),
@@ -1481,7 +1482,7 @@ class DefaultAssetPickerBuilderDelegate
               : null,
           materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
           child: ScaleText(
-            p.isSelectedNotEmpty && !isSingleAssetMode
+            p.isSelectedNotEmpty && isSingleAssetMode
                 ? '${textDelegate.confirm}'
                     ' (${p.selectedAssets.length}/${p.maxAssets})'
                 : textDelegate.confirm,
@@ -1492,7 +1493,7 @@ class DefaultAssetPickerBuilderDelegate
               fontSize: 17,
               fontWeight: FontWeight.normal,
             ),
-            semanticsLabel: p.isSelectedNotEmpty && !isSingleAssetMode
+            semanticsLabel: p.isSelectedNotEmpty && isSingleAssetMode
                 ? '${semanticsTextDelegate.confirm}'
                     ' (${p.selectedAssets.length}/${p.maxAssets})'
                 : semanticsTextDelegate.confirm,
@@ -2018,7 +2019,7 @@ class DefaultAssetPickerBuilderDelegate
             width: isPreviewEnabled ? indicatorSize : null,
             height: isPreviewEnabled ? indicatorSize : null,
             alignment: AlignmentDirectional.topEnd,
-            child: (!isPreviewEnabled && isSingleAssetMode && !selected)
+            child: (!isPreviewEnabled && !isSingleAssetMode && !selected)
                 ? const SizedBox.shrink()
                 : innerSelector,
           ),
@@ -2053,7 +2054,7 @@ class DefaultAssetPickerBuilderDelegate
               color: selected
                   ? theme.colorScheme.primary.withOpacity(.45)
                   : theme.backgroundColor.withOpacity(.1),
-              child: selected && !isSingleAssetMode
+              child: selected && isSingleAssetMode
                   ? Align(
                       alignment: AlignmentDirectional.topStart,
                       child: SizedBox(
