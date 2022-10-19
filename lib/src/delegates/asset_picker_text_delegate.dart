@@ -629,7 +629,9 @@ class JapaneseAssetPickerTextDelegate extends AssetPickerTextDelegate {
       'よろしければシステム設定から写真のアクセス許可設定をご変更ください。';
 
   @override
-  String get accessAllTip2 => '設定から写真のアクセス設定を変更します。';
+  String get accessAllTip2 => '選択した写真にのみアクセスできるように設定されています。'
+      'すべての写可いただくとスムーズ'
+      'よろしければシステム設定から。';
 
   @override
   String get goToSystemSettings => '「システム設定」に移動';
